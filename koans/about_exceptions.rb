@@ -2,8 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 class AboutExceptions < Neo::Koan
 
-  class MySpecialError < RuntimeError
-  end
+  class MySpecialError < RuntimeError; end
 
   def test_exceptions_inherit_from_Exception
     assert_equal RuntimeError, MySpecialError.ancestors[1]
@@ -14,6 +13,7 @@ class AboutExceptions < Neo::Koan
 
   def test_rescue_clause
     result = nil
+
     begin
       fail "Oops"
     rescue StandardError => ex
@@ -33,8 +33,8 @@ class AboutExceptions < Neo::Koan
 
   def test_raising_a_particular_error
     result = nil
+
     begin
-      # 'raise' and 'fail' are synonyms
       raise MySpecialError, "My Message"
     rescue MySpecialError => ex
       result = :exception_handled
@@ -46,6 +46,7 @@ class AboutExceptions < Neo::Koan
 
   def test_ensure_clause
     result = nil
+
     begin
       fail "Oops"
     rescue StandardError
@@ -57,12 +58,9 @@ class AboutExceptions < Neo::Koan
     assert_equal :always_run, result
   end
 
-  # Sometimes, we must know about the unknown
   def test_asserting_an_error_is_raised
-    # A do-end is a block, a topic to explore more later
     assert_raise(MySpecialError) do
       raise MySpecialError.new("New instances can be raised directly.")
     end
   end
-
 end

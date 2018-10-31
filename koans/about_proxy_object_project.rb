@@ -38,8 +38,6 @@ class AboutProxyObjectProject < Neo::Koan
   def test_proxy_method_returns_wrapped_object
     tv = Proxy.new(Television.new)
 
-    # HINT: Proxy class is defined above, may need tweaking...
-
     assert tv.instance_of?(Proxy)
   end
 
@@ -105,10 +103,7 @@ end
 
 
 # ====================================================================
-# The following code is to support the testing of the Proxy class.  No
-# changes should be necessary to anything below this comment.
 
-# Example class using in the proxy testing above.
 class Television
   attr_accessor :channel
 
@@ -125,7 +120,6 @@ class Television
   end
 end
 
-# Tests for the Television class.  All of theses tests should pass.
 class TelevisionTest < Neo::Koan
   def test_it_turns_on
     tv = Television.new

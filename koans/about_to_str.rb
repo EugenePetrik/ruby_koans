@@ -9,6 +9,7 @@ class AboutToStr < Neo::Koan
 
   def test_to_s_returns_a_string_representation
     not_like_a_string = CanNotBeTreatedAsString.new
+
     assert_equal 'non-string-like', not_like_a_string.to_s
   end
 
@@ -32,6 +33,7 @@ class AboutToStr < Neo::Koan
 
   def test_to_str_also_returns_a_string_representation
     like_a_string = CanBeTreatedAsString.new
+    
     assert_equal 'string-like', like_a_string.to_str
   end
 

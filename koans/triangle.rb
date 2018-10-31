@@ -12,7 +12,7 @@
 #   about_triangle_project.rb
 # and
 #   about_triangle_project_2.rb
-#
+
 def triangle(a, b, c)
   raise TriangleError.new("One side = 0") if a == 0 || b == 0 || c == 0
   raise TriangleError.new("Negative side") if a < 0 || b < 0 || c < 0
@@ -23,6 +23,4 @@ def triangle(a, b, c)
   return :scalene
 end
 
-# Error class used in part 2.  No need to change this code.
-class TriangleError < StandardError
-end
+class TriangleError < StandardError; end

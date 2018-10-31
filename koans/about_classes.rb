@@ -95,7 +95,6 @@ class AboutClasses < Neo::Koan
     attr_accessor :name
   end
 
-
   def test_attr_accessor_will_automatically_define_both_read_and_write_accessors
     fido = Dog5.new
     fido.name = "Fido"
@@ -156,7 +155,7 @@ class AboutClasses < Neo::Koan
   def test_inside_a_method_self_refers_to_the_containing_object
     fido = Dog7.new("Fido")
     fidos_self = fido.get_self
-
+    
     assert_equal fido, fidos_self
   end
 
